@@ -1,10 +1,6 @@
 #include <iostream>
-#include <stdlib.h>
-#include <stdio.h>
 
 using namespace std;
-
-int comp(const void *, const void *);
 
 int main()
 {
