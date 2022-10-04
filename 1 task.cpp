@@ -1,3 +1,4 @@
+
 #include <iostream>
 #include <stdlib.h>
 #include <stdio.h>
@@ -17,11 +18,10 @@ int main()
         int b;
         cin>>b;
         inst[i] = b;
-        int counter = 2;
         bool Flag2 = true;
         if (b > 9){
-	        while (b > 0){
-	        	if ((b % (counter * 10)) != (b % ((counter - 1) * 10))){
+	        while (b > 9){
+	        	if ((b / 10 % 10) != (b % 10)){
 	        		Flag2 = false;
 				}
 				b = b / 10;
