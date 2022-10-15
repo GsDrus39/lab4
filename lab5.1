@@ -1,0 +1,42 @@
+#include <cstring>
+#include <iostream>
+#include <stdio.h>
+using namespace std;
+
+
+int main(int argc, char** argv) {
+	char input_string[101];
+	char list_of_words[101][101];
+	int last_index_for_space = 0;
+	int counter = 0;
+	gets(input_string);	
+	for (int i = 0; i <= strlen(input_string); i++){
+		if (input_string[i] == ' ' or i == strlen(input_string)){
+			for (int j = last_index_for_space; j < i; j++){
+				if (last_index_for_space != 0){
+					list_of_words[counter][j % last_index_for_space] = input_string[j];
+				}
+				else{
+					list_of_words[counter][j] = input_string[j];
+				}
+			}
+			counter++;
+			last_index_for_space = i + 1;
+		}		
+	}
+	char temp[101];
+    
+    for (int i = 0; i < 101 - 1; i++) {
+        for (int j = 0; j < 101 - i - 1; j++) {
+            if (list_of_words[j] > list_of_words[j + 1]) {
+                strcpy(temp, list_of_words[j]);
+                strcpy(list_of_words[j], list_of_words[j + 1]);
+            	strcpy(list_of_words[j + 1], temp);
+            }
+        }
+    }
+    for (int i = 0; i < counter; i++){
+		cout<<list_of_words[i]<<'\n';
+	}
+	return 0;
+}
