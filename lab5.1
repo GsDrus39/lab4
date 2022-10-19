@@ -24,19 +24,24 @@ int main(int argc, char** argv) {
 			last_index_for_space = i + 1;
 		}		
 	}
+	char list_of_words_cor[counter - 1][101];
 	char temp[101];
+	for (int i = 0; i < counter; i++){
+		strcpy(list_of_words_cor[i], list_of_words[i]);	
+	}
     
-    for (int i = 0; i < 101 - 1; i++) {
-        for (int j = 0; j < 101 - i - 1; j++) {
-            if (list_of_words[j] > list_of_words[j + 1]) {
-                strcpy(temp, list_of_words[j]);
-                strcpy(list_of_words[j], list_of_words[j + 1]);
-            	strcpy(list_of_words[j + 1], temp);
+    for (int i = 0; i < counter - 1; i++) {
+        for (int j = 0; j < counter - 1 - i; j++) {
+            if (strcmp(list_of_words_cor[j], list_of_words_cor[j + 1]) > 0){
+                strcpy(temp, list_of_words_cor[j]);
+                strcpy(list_of_words_cor[j], list_of_words_cor[j + 1]);
+            	strcpy(list_of_words_cor[j + 1], temp);
             }
         }
     }
     for (int i = 0; i < counter; i++){
-		cout<<list_of_words[i]<<'\n';
+    	cout<<list_of_words_cor[i]<<'\n';
+		
 	}
 	return 0;
 }
