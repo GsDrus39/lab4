@@ -19,8 +19,9 @@ int sum(std::string A, std::string B)
 	{
 		length = A.length();
 	}
+	int counter = std::abs(int(A.length() - B.length()));
 
-	for (int i = 0; i < std::abs(int(A.length() - B.length())); i++)
+	for (int i = 0; i < counter; i++)
 	{
 		if (flag)
 		{
@@ -35,6 +36,7 @@ int sum(std::string A, std::string B)
 	for (int i = 0; i < length; i++)
 	{
 		int lastfst = std::stoi(B.substr(length - 1 - i, 1));
+		//std::cout << A.substr(length - 1 - i, 1) << std::endl;
 		int lastsnd = std::stoi(A.substr(length - 1 - i, 1));
 		if (flag)
 		{
@@ -55,9 +57,9 @@ int sum(std::string A, std::string B)
 
 int main()
 {
-	std::string fst = "12";
-	std::string snd = "10";
-	
+	std::string fst = "1000000000000";
+	std::string snd = "1000000000000";
+
 	int res1 = 0;
 	for (int i = 0; i < std::stoi(snd); i++)
 	{
